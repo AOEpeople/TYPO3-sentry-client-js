@@ -1,7 +1,7 @@
 {
   "name": "aoe/sentry-client-js",
   "type": "typo3-cms-extension",
-  "description": "Client-side error reporting with Sentry",
+  "description": "TYPO3 extension for client-side error logging with Sentry",
   "homepage": "https://github.com/AOEpeople/TYPO3-sentry-client-js",
   "authors": [
     {
@@ -16,5 +16,10 @@
   },
   "require-dev": {
     "typo3/cms": "6.2.*"
-  }
+  },
+  "keywords": [
+    "TYPO3",
+    "sentry",
+    "logging"
+  ]
 }
