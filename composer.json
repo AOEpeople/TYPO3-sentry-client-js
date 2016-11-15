@@ -1,0 +1,20 @@
+{
+  "name": "aoe/sentry-client-js",
+  "type": "typo3-cms-extension",
+  "description": "Client-side error reporting with Sentry",
+  "homepage": "https://github.com/AOEpeople/TYPO3-sentry-client-js",
+  "authors": [
+    {
+      "name": "AOE GmbH",
+      "email": "dev@aoe.com",
+      "homepage": "http://www.aoe.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.0",
+    "typo3/cms-core": "*"
+  },
+  "require-dev": {
+    "typo3/cms": "6.2.*"
+  }
+}

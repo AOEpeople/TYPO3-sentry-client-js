@@ -1,0 +1,10 @@
+page = PAGE
+page.headerData {
+    1479209538  = TEXT
+    1479209538.value = <script src="https://cdn.ravenjs.com/3.8.0/raven.min.js" crossorigin="anonymous"></script>
+
+    1479209539 = TEXT
+    1479209539.value = {$const.tx_sentry_client_js.dsn}
+    1479209539.stdWrap.wrap = <script>Raven.config('|').install();</script>
+    1479209539.stdWrap.required = 1
+}
