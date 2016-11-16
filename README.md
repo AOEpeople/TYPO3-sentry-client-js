@@ -17,9 +17,14 @@ The extension adds the Sentry JavaScript library ([Raven.js](https://github.com/
 
     composer require aoe/sentry-client-js
 
+After the Extension is installed, you can add the Static Include for the Extension (sentry_client_js).
 
 ### Configuration
 
 You can set your Sentry client key (DSN) with a TypoScript constant:
 
     const.tx_sentry_client_js.dsn = https://xxxxxxxxxxxxxxxxx@sentry.io/xxxxxx
+    
+#### Activate / Deactivate
+
+If you do not set your DSN the script is not included.
