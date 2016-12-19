@@ -2,7 +2,7 @@ page = PAGE
 page.headerData {
     1479209538 = TEXT
     1479209538 {
-        value = <script src="https://cdn.ravenjs.com/3.8.0/raven.min.js" crossorigin="anonymous"></script>
+        value = <script src="https://cdn.ravenjs.com/3.9.1/raven.min.js" crossorigin="anonymous"></script>
         if.isTrue = {$const.tx_sentry_client_js.dsn}
     }
 
