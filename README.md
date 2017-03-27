@@ -25,6 +25,10 @@ You can set your Sentry client key (DSN) with a TypoScript constant:
 
     const.tx_sentry_client_js.dsn = https://xxxxxxxxxxxxxxxxx@sentry.io/xxxxxx
     
+You can set the desired [Raven.js](https://github.com/getsentry/raven-js) version:
+
+    const.tx_sentry_client_js.client_version = 3.13.1
+    
 #### Activate / Deactivate
 
 If you do not set your DSN the script is not included.
