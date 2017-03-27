@@ -1,4 +1,7 @@
 const.tx_sentry_client_js {
     # cat=plugin.tx_sentry_client_js; type=string; label=Your public DSN
     dsn=
+
+    # cat=plugin.tx_sentry_client_js; type=string; label=Raven.js client version
+    client_version=3.13.1
 }
