@@ -1,25 +1,28 @@
 {
-  "name": "aoe/sentry-client-js",
-  "type": "typo3-cms-extension",
-  "description": "TYPO3 extension for client-side error logging with Sentry",
-  "homepage": "https://github.com/AOEpeople/TYPO3-sentry-client-js",
-  "authors": [
-    {
-      "name": "AOE GmbH",
-      "email": "dev@aoe.com",
-      "homepage": "http://www.aoe.com"
-    }
-  ],
-  "require": {
-    "php": ">=5.5.0",
-    "typo3/cms-core": "*"
-  },
-  "require-dev": {
-    "typo3/cms": "6.2.*"
-  },
-  "keywords": [
-    "TYPO3",
-    "sentry",
-    "logging"
-  ]
+    "name": "aoe/sentry-client-js",
+    "type": "typo3-cms-extension",
+    "description": "TYPO3 extension for client-side error logging with Sentry",
+    "homepage": "https://github.com/AOEpeople/TYPO3-sentry-client-js",
+    "authors": [
+        {
+            "name": "AOE GmbH",
+            "email": "dev@aoe.com",
+            "homepage": "http://www.aoe.com"
+        }
+    ],
+    "config": {
+        "secure-http": false
+    },
+    "require": {
+        "php": ">=5.5.0",
+        "typo3/cms-core": ">=6.2.0,<=7.6.99"
+    },
+    "require-dev": {
+        "typo3/cms": "^6.2"
+    },
+    "keywords": [
+        "TYPO3",
+        "sentry",
+        "logging"
+    ]
 }
