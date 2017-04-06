@@ -24,5 +24,8 @@
         "TYPO3",
         "sentry",
         "logging"
-    ]
+    ],
+    "replace": {
+        "sentry_client_js": "*"
+    }
 }
