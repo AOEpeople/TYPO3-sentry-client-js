@@ -17,23 +17,63 @@
         }
     ],
     "require": {
-        "php": ">=5.5.0",
-        "typo3/cms-core": ">=6.2.0,<=9.5.99"
+        "php": "^7.4 || ^8.0",
+        "cweagans/composer-patches": "~1.0",
+        "typo3/cms-core": "^11.5"
     },
+    "require-dev": {
+        "nimut/testing-framework": "^6.0",
+        "phpspec/prophecy-phpunit": "^2.0",
+        "phpcompatibility/php-compatibility": "^9.3",
+        "phpstan/phpstan": "0.12.88",
+        "rector/rector": "0.11.20",
+        "symplify/easy-coding-standard": "9.3.26",
+        "symplify/phpstan-rules": "9.3.26"
+    },
+    "prefer-stable": true,
     "config": {
         "vendor-dir": ".Build/vendor",
-        "bin-dir": ".Build/bin"
+        "bin-dir": ".Build/bin",
+        "allow-plugins": {
+            "typo3/cms-composer-installers": true,
+            "typo3/class-alias-loader": true,
+            "cweagans/composer-patches": true
+        }
     },
     "scripts": {
         "post-autoload-dump": [
             "mkdir -p .Build/Web/typo3conf/ext/",
             "[ -L .Build/Web/typo3conf/ext/sentry_client_js ] || ln -snvf ../../../../. .Build/Web/typo3conf/ext/sentry_client_js"
+        ],
+        "code-style": [
+            "[ -e ./.Build/bin/rector ] || composer install",
+            "./.Build/bin/ecs check --config code-quality/ecs.php",
+            "./.Build/bin/rector process --dry-run --config code-quality/rector.php"
+        ],
+        "code-style-upgrade": [
+            "[ -e ./.Build/bin/rector ] || composer install",
+            "./.Build/bin/rector process --dry-run --config code-quality/rector-8_0.php"
+        ],
+        "code-analysis": [
+            "./.Build/bin/phpstan analyse -c code-quality/phpstan.neon --memory-limit=1G"
+        ],
+        "code-analysis--baseline": [
+            "./.Build/bin/phpstan analyse -c code-quality/phpstan.neon --memory-limit=1G --generate-baseline"
+        ],
+        "code-compatibility": [
+            "[ -e ./.Build/vendor/symplify/easy-coding-standard/vendor/squizlabs/php_codesniffer/bin/phpcs ] || composer install",
+            "[ -d ./reports/php_checkstyle ] || mkdir -p reports/php_checkstyle/",
+            "./code-quality/configure-checkstyle.sh",
+            "./.Build/vendor/symplify/easy-coding-standard/vendor/squizlabs/php_codesniffer/bin/phpcs -d memory_limit=1G --standard=PHPCompatibility --colors --ignore=*/.Build/*,*/vendor/*,*/node_modules/*,*.css,*.js,*.blade.php,*/tests/* -p . --runtime-set testVersion 7.4 --report=summary",
+            "./.Build/vendor/symplify/easy-coding-standard/vendor/squizlabs/php_codesniffer/bin/phpcs -d memory_limit=1G --standard=PHPCompatibility --colors --ignore=*/.Build/*,*/vendor/*,*/node_modules/*,*.css,*.js,*.blade.php,*/tests/* -p . --runtime-set testVersion 8.0 --report=summary"
+        ],
+        "code-check-pipeline": [
+            "@composer code-style",
+            "@composer code-analysis",
+            "@composer code-compatibility"
         ]
     },
     "extra": {
-        "branch-alias": {
-            "dev-master": "1.0.1-dev"
-        },
         "typo3/cms": {
             "cms-package-dir": "{$vendor-dir}/typo3/cms",
             "web-dir": ".Build/Web"
