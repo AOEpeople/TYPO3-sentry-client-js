@@ -75,6 +75,7 @@
     },
     "extra": {
         "typo3/cms": {
+            "extension-key": "sentry_client_js",
             "cms-package-dir": "{$vendor-dir}/typo3/cms",
             "web-dir": ".Build/Web"
         }
