@@ -1,6 +1,7 @@
 # TYPO3-sentry-client-js
 
 _TYPO3 Extension to integrate client-side error reporting with [Sentry](http://www.sentry.io)_.
+IMPORTANT: We don't support this extension anymore. This extension will be archived.
 
 
 ### Description
